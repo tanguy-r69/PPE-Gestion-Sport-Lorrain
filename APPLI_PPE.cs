@@ -26,21 +26,7 @@ namespace PPE_Maison_Des_Ligues
             InitializeComponent();
             
         }
-
-        public void actualiserDGVAtlier()
-        {
-            LesAteliersHoraire = DAOAtelier.getAllAteliersHoraire();
-            foreach (var a in LesAteliersHoraire)
-            {
-                dgvAtelier.Rows.Add(a.LibelleAtelier,a.CapaciteMax,a.Debut,a.Fin);
-            }
-
-            //remplissage de la cbx avec le libelle des ateliers
-            foreach (var a in LesAteliers)
-            {
-                cbxAtelier.Items.Add(a.LibelleAtelier);
-            }
-        }
+        
            
         
         private void Form1_Load(object sender, EventArgs e)
@@ -83,7 +69,18 @@ namespace PPE_Maison_Des_Ligues
             #endregion 
             
             #region Load Camille
-            actualiserDGVAtlier();
+            
+            LesAteliersHoraire = DAOAtelier.getAllAteliersHoraire();
+            foreach (var a in LesAteliersHoraire)
+            {
+                dgvAtelier.Rows.Add(a.LibelleAtelier,a.CapaciteMax,a.Debut,a.Fin);
+            }
+
+            //remplissage de la cbx avec le libelle des ateliers
+            foreach (var a in LesAteliers)
+            {
+                cbxAtelier.Items.Add(a.LibelleAtelier);
+            }
             #endregion
         }
 
@@ -315,11 +312,23 @@ namespace PPE_Maison_Des_Ligues
         private bool testHoraireExist()
         {
             bool res = true;
+
+            if (cbxAtelier.Text == "")
+            {
+                MessageBox.Show("Attention aucun atelier n'a été sélectionné", "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }
+            
+            if (dtPickerDebut.Value > dtPickerFin.Value)
+            {
+                MessageBox.Show("Attention l'horaire de début doit être supérieur à l'horaire de fin", "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }
+            
             foreach (var a in LesAteliersHoraire)
             {
                 if (a.Debut.Hour == dtPickerDebut.Value.Hour && a.Debut.Day == dtPickerDebut.Value.Day && a.Debut.Year == dtPickerDebut.Value.Year)
                 {
-                    
                     res = false;
                 }
             }
@@ -329,12 +338,18 @@ namespace PPE_Maison_Des_Ligues
                 MessageBox.Show("Plage horaire impossible atelier déjà programmé pour cet horaire", "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
-            if (dtPickerDebut.Value > dtPickerFin.Value)
-            {
-                MessageBox.Show("Attention l'horaire de début doit être supérieur à l'horaire de fin", "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                res = false;
-            }
+            
             return res;
+        }
+
+        public void refreshDgvAtelier()
+        {
+            dgvAtelier.Rows.Clear();
+            LesAteliersHoraire = DAOAtelier.getAllAteliersHoraire();
+            foreach (var a in LesAteliersHoraire)
+            {
+                dgvAtelier.Rows.Add(a.LibelleAtelier,a.CapaciteMax,a.Debut,a.Fin);
+            }
         }
 
         #endregion 
@@ -344,7 +359,7 @@ namespace PPE_Maison_Des_Ligues
         
         private void btnDate_Click(object sender, EventArgs e)
         {
-            labAfficheDate.Text = dtPickerDebut.Value.ToString("dd-MM-yyyy h:mm:ss");
+            
         }
 
         private void btnValiderHoraire_Click(object sender, EventArgs e)
@@ -352,14 +367,9 @@ namespace PPE_Maison_Des_Ligues
             int id = cbxAtelier.SelectedIndex + 1;
             if (testHoraireExist() == true)
             {
-                
                 DAOAtelier.setHoraire(id, dtPickerDebut.Value, dtPickerFin.Value);
-                this.Controls.Clear();
-                this.InitializeComponent();
-                actualiserDGVAtlier();
             }
-            
-            
+            refreshDgvAtelier();
         }
         
         #endregion
@@ -445,12 +455,5 @@ namespace PPE_Maison_Des_Ligues
         }
         
         #endregion
-
-        
-       
-        
-
-
-        
     }
 }

@@ -66,8 +66,6 @@ namespace PPE_Maison_Des_Ligues
             this.btnValiderHoraire = new System.Windows.Forms.Button();
             this.dtPickerFin = new System.Windows.Forms.DateTimePicker();
             this.dtPickerDebut = new System.Windows.Forms.DateTimePicker();
-            this.btnDate = new System.Windows.Forms.Button();
-            this.labAfficheDate = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.cbxAtelier = new System.Windows.Forms.ComboBox();
@@ -88,6 +86,7 @@ namespace PPE_Maison_Des_Ligues
             this.idAtelierParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idHorraireBenevolesParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -113,6 +112,7 @@ namespace PPE_Maison_Des_Ligues
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabAtelier);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -369,7 +369,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             // buttonCreateParticipant
             // 
-            this.buttonCreateParticipant.Location = new System.Drawing.Point(531, 292);
+            this.buttonCreateParticipant.Location = new System.Drawing.Point(531, 312);
             this.buttonCreateParticipant.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCreateParticipant.Name = "buttonCreateParticipant";
             this.buttonCreateParticipant.Size = new System.Drawing.Size(192, 60);
@@ -381,30 +381,30 @@ namespace PPE_Maison_Des_Ligues
             // comboBoxAtelier
             // 
             this.comboBoxAtelier.FormattingEnabled = true;
-            this.comboBoxAtelier.Location = new System.Drawing.Point(593, 184);
+            this.comboBoxAtelier.Location = new System.Drawing.Point(459, 179);
             this.comboBoxAtelier.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxAtelier.Name = "comboBoxAtelier";
-            this.comboBoxAtelier.Size = new System.Drawing.Size(131, 32);
+            this.comboBoxAtelier.Size = new System.Drawing.Size(325, 32);
             this.comboBoxAtelier.TabIndex = 3;
             this.comboBoxAtelier.SelectedIndexChanged += new System.EventHandler(this.comboBoxAtelier_SelectedIndexChanged);
             // 
             // comboBoxBenevole
             // 
             this.comboBoxBenevole.FormattingEnabled = true;
-            this.comboBoxBenevole.Location = new System.Drawing.Point(593, 245);
+            this.comboBoxBenevole.Location = new System.Drawing.Point(531, 245);
             this.comboBoxBenevole.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxBenevole.Name = "comboBoxBenevole";
-            this.comboBoxBenevole.Size = new System.Drawing.Size(131, 32);
+            this.comboBoxBenevole.Size = new System.Drawing.Size(193, 32);
             this.comboBoxBenevole.TabIndex = 2;
             this.comboBoxBenevole.SelectedIndexChanged += new System.EventHandler(this.comboBoxBenevole_SelectedIndexChanged);
             // 
             // comboBoxType
             // 
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(593, 114);
+            this.comboBoxType.Location = new System.Drawing.Point(531, 114);
             this.comboBoxType.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(131, 32);
+            this.comboBoxType.Size = new System.Drawing.Size(193, 32);
             this.comboBoxType.TabIndex = 1;
             this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.comboBoxType_SelectedIndexChanged);
             // 
@@ -413,8 +413,6 @@ namespace PPE_Maison_Des_Ligues
             this.tabAtelier.Controls.Add(this.btnValiderHoraire);
             this.tabAtelier.Controls.Add(this.dtPickerFin);
             this.tabAtelier.Controls.Add(this.dtPickerDebut);
-            this.tabAtelier.Controls.Add(this.btnDate);
-            this.tabAtelier.Controls.Add(this.labAfficheDate);
             this.tabAtelier.Controls.Add(this.label15);
             this.tabAtelier.Controls.Add(this.label14);
             this.tabAtelier.Controls.Add(this.cbxAtelier);
@@ -440,7 +438,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.dtPickerFin.CustomFormat = "ddMMMM yyyy  HH:mm";
             this.dtPickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerFin.Location = new System.Drawing.Point(605, 277);
+            this.dtPickerFin.Location = new System.Drawing.Point(592, 277);
             this.dtPickerFin.MinDate = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
             this.dtPickerFin.Name = "dtPickerFin";
             this.dtPickerFin.Size = new System.Drawing.Size(200, 20);
@@ -450,7 +448,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.dtPickerDebut.CustomFormat = "ddMMMM yyyy  HH:mm";
             this.dtPickerDebut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerDebut.Location = new System.Drawing.Point(358, 277);
+            this.dtPickerDebut.Location = new System.Drawing.Point(364, 277);
             this.dtPickerDebut.MaxDate = new System.DateTime(2111, 1, 4, 0, 0, 0, 0);
             this.dtPickerDebut.MinDate = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
             this.dtPickerDebut.Name = "dtPickerDebut";
@@ -458,32 +456,14 @@ namespace PPE_Maison_Des_Ligues
             this.dtPickerDebut.TabIndex = 7;
             this.dtPickerDebut.Value = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
             // 
-            // btnDate
-            // 
-            this.btnDate.Location = new System.Drawing.Point(668, 320);
-            this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(75, 23);
-            this.btnDate.TabIndex = 6;
-            this.btnDate.Text = "button1";
-            this.btnDate.UseVisualStyleBackColor = true;
-            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
-            // 
-            // labAfficheDate
-            // 
-            this.labAfficheDate.Location = new System.Drawing.Point(421, 325);
-            this.labAfficheDate.Name = "labAfficheDate";
-            this.labAfficheDate.Size = new System.Drawing.Size(100, 23);
-            this.labAfficheDate.TabIndex = 5;
-            this.labAfficheDate.Text = "label16";
-            // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label15.Location = new System.Drawing.Point(339, 237);
+            this.label15.Location = new System.Drawing.Point(364, 237);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(271, 37);
+            this.label15.Size = new System.Drawing.Size(428, 37);
             this.label15.TabIndex = 4;
-            this.label15.Text = "Selectionner le jour et l\'heure\r\n";
+            this.label15.Text = "Selectionner le jour et l\'heure de début et de fin \r\n\r\n";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label14
@@ -666,6 +646,16 @@ namespace PPE_Maison_Des_Ligues
             this.label12.TabIndex = 1;
             this.label12.Text = "Liste de tout les participants:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(813, 406);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Intervenant";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,6 +681,8 @@ namespace PPE_Maison_Des_Ligues
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.TabPage tabPage4;
+
         private System.Windows.Forms.Button btnValiderHoraire;
 
         private System.Windows.Forms.DateTimePicker dtPickerDebut;
@@ -702,10 +694,6 @@ namespace PPE_Maison_Des_Ligues
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacite;
         private System.Windows.Forms.DataGridViewTextBoxColumn debut;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin;
-
-        private System.Windows.Forms.Label labAfficheDate;
-
-        private System.Windows.Forms.Button btnDate;
 
         private System.Windows.Forms.Label label16;
 
