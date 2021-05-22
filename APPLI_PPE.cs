@@ -15,6 +15,7 @@ namespace PPE_Maison_Des_Ligues
        
         //Déclaration des listes
         public List<Atelier> LesAteliers = new List<Atelier>();
+        public List<Atelier> LesAteliersNotFull = new List<Atelier>();
         public List<HorrairesBenevoles> LesHorrairesBenevoles = new List<HorrairesBenevoles>();
         public List<TypeParticipant> LesTypesParticipants = new List<TypeParticipant>();
         public List<Participant> LesParticipants = new List<Participant>();
@@ -64,7 +65,15 @@ namespace PPE_Maison_Des_Ligues
             //refresh bdd
             refreshDgvParticipant();
             
-            #endregion    
+            #endregion 
+            
+            #region Load Camille
+            
+            foreach (var a in LesAteliersNotFull)
+            {
+                dgvAtelier.Rows.Add(a.NumAtelier,a.LibelleAtelier,a.CapaciteMax);
+            }
+            #endregion
         }
 
         

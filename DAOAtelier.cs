@@ -26,5 +26,23 @@ namespace PPE_Maison_Des_Ligues
 
             return lesAteliers;
         }
+        
+        public static List<Atelier> getAllAteliersNotFull()
+        {
+            List<Atelier> lesAteliersNotFull = new List<Atelier>();
+            string req = "Select id,libelle,capaciteMax from atelier";
+            DAOFactory db = new DAOFactory();
+            db.connecter();
+
+            SqlDataReader reader = db.excecSQLRead(req);
+
+            while (reader.Read())
+            {
+                Atelier at = new Atelier(int.Parse(reader[0].ToString()), reader[1].ToString(), int.Parse(reader[2].ToString()));
+                lesAteliersNotFull.Add(at);
+            }
+
+            return lesAteliersNotFull;
+        }
     }
 }

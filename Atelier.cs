@@ -29,6 +29,13 @@ namespace PPE_Maison_Des_Ligues
             this.fin = fin;
             this.idParticipant = idParticipant;
         }
+        
+        public Atelier(int numAtelier, string libelleAtelier, int capaciteMax)
+        {
+            this.numAtelier = numAtelier;
+            this.libelleAtelier = libelleAtelier;
+            this.capaciteMax = capaciteMax;
+        }
 
         #endregion
 
