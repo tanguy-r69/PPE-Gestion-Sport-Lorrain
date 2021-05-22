@@ -12,24 +12,11 @@ namespace PPE_Maison_Des_Ligues
         private int numAtelier;
         private string libelleAtelier;
         private int capaciteMax;
-        private DateTime debut;
-        private DateTime fin;
-        private int idParticipant;
         //private List<Atelier> lesAteliers;
         #endregion
 
         #region Constructeur
 
-        public Atelier(int numAtelier, string libelleAtelier, int capaciteMax, DateTime debut, DateTime fin, int idParticipant)
-        {
-            this.numAtelier = numAtelier;
-            this.libelleAtelier = libelleAtelier;
-            this.capaciteMax = capaciteMax;
-            this.debut = debut;
-            this.fin = fin;
-            this.idParticipant = idParticipant;
-        }
-        
         public Atelier(int numAtelier, string libelleAtelier, int capaciteMax)
         {
             this.numAtelier = numAtelier;
@@ -59,6 +46,24 @@ namespace PPE_Maison_Des_Ligues
             set => capaciteMax = value;
         }
 
+        //internal List<Atelier> LesAteliers { get => lesAteliers; set => lesAteliers = value; }
+        #endregion
+
+        
+    }
+
+    public class AtelierHoraire : Atelier
+    {
+        private DateTime debut;
+        private DateTime fin;
+
+        public AtelierHoraire(int numAtelier, string libelleAtelier, int capaciteMax, DateTime debut, DateTime fin) :
+            base(numAtelier, libelleAtelier, capaciteMax)
+        {
+            this.debut = debut;
+            this.fin = fin;
+        }
+        
         public DateTime Debut
         {
             get => debut;
@@ -70,16 +75,5 @@ namespace PPE_Maison_Des_Ligues
             get => fin;
             set => fin = value;
         }
-
-        public int IdParticipant
-        {
-            get => idParticipant;
-            set => idParticipant = value;
-        }
-
-        //internal List<Atelier> LesAteliers { get => lesAteliers; set => lesAteliers = value; }
-        #endregion
-
-        
     }
 }

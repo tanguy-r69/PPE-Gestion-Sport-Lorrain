@@ -63,9 +63,19 @@ namespace PPE_Maison_Des_Ligues
             this.comboBoxBenevole = new System.Windows.Forms.ComboBox();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.tabAtelier = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnValiderHoraire = new System.Windows.Forms.Button();
+            this.dtPickerFin = new System.Windows.Forms.DateTimePicker();
+            this.dtPickerDebut = new System.Windows.Forms.DateTimePicker();
+            this.btnDate = new System.Windows.Forms.Button();
+            this.labAfficheDate = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.cbxAtelier = new System.Windows.Forms.ComboBox();
             this.dgvAtelier = new System.Windows.Forms.DataGridView();
+            this.Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Capacite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvParticipant = new System.Windows.Forms.DataGridView();
             this.idParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,9 +88,6 @@ namespace PPE_Maison_Des_Ligues
             this.idAtelierParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idHorraireBenevolesParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capaciteMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -132,7 +139,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLogOut.Location = new System.Drawing.Point(595, 362);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(106, 41);
             this.btnLogOut.TabIndex = 2;
@@ -144,7 +151,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.btnEnd.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnEnd.Location = new System.Drawing.Point(705, 362);
-            this.btnEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(106, 41);
             this.btnEnd.TabIndex = 1;
@@ -403,7 +410,13 @@ namespace PPE_Maison_Des_Ligues
             // 
             // tabAtelier
             // 
-            this.tabAtelier.Controls.Add(this.dateTimePicker1);
+            this.tabAtelier.Controls.Add(this.btnValiderHoraire);
+            this.tabAtelier.Controls.Add(this.dtPickerFin);
+            this.tabAtelier.Controls.Add(this.dtPickerDebut);
+            this.tabAtelier.Controls.Add(this.btnDate);
+            this.tabAtelier.Controls.Add(this.labAfficheDate);
+            this.tabAtelier.Controls.Add(this.label15);
+            this.tabAtelier.Controls.Add(this.label14);
             this.tabAtelier.Controls.Add(this.cbxAtelier);
             this.tabAtelier.Controls.Add(this.dgvAtelier);
             this.tabAtelier.Location = new System.Drawing.Point(4, 22);
@@ -413,22 +426,82 @@ namespace PPE_Maison_Des_Ligues
             this.tabAtelier.Text = "Atelier";
             this.tabAtelier.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // btnValiderHoraire
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(331, 294);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker1.TabIndex = 2;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.btnValiderHoraire.Location = new System.Drawing.Point(52, 338);
+            this.btnValiderHoraire.Name = "btnValiderHoraire";
+            this.btnValiderHoraire.Size = new System.Drawing.Size(121, 47);
+            this.btnValiderHoraire.TabIndex = 9;
+            this.btnValiderHoraire.Text = "Valider";
+            this.btnValiderHoraire.UseVisualStyleBackColor = true;
+            this.btnValiderHoraire.Click += new System.EventHandler(this.btnValiderHoraire_Click);
+            // 
+            // dtPickerFin
+            // 
+            this.dtPickerFin.CustomFormat = "ddMMMM yyyy  HH:mm";
+            this.dtPickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerFin.Location = new System.Drawing.Point(605, 277);
+            this.dtPickerFin.MinDate = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
+            this.dtPickerFin.Name = "dtPickerFin";
+            this.dtPickerFin.Size = new System.Drawing.Size(200, 20);
+            this.dtPickerFin.TabIndex = 8;
+            // 
+            // dtPickerDebut
+            // 
+            this.dtPickerDebut.CustomFormat = "ddMMMM yyyy  HH:mm";
+            this.dtPickerDebut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtPickerDebut.Location = new System.Drawing.Point(358, 277);
+            this.dtPickerDebut.MaxDate = new System.DateTime(2111, 1, 4, 0, 0, 0, 0);
+            this.dtPickerDebut.MinDate = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
+            this.dtPickerDebut.Name = "dtPickerDebut";
+            this.dtPickerDebut.Size = new System.Drawing.Size(200, 20);
+            this.dtPickerDebut.TabIndex = 7;
+            this.dtPickerDebut.Value = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
+            // 
+            // btnDate
+            // 
+            this.btnDate.Location = new System.Drawing.Point(668, 320);
+            this.btnDate.Name = "btnDate";
+            this.btnDate.Size = new System.Drawing.Size(75, 23);
+            this.btnDate.TabIndex = 6;
+            this.btnDate.Text = "button1";
+            this.btnDate.UseVisualStyleBackColor = true;
+            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
+            // 
+            // labAfficheDate
+            // 
+            this.labAfficheDate.Location = new System.Drawing.Point(421, 325);
+            this.labAfficheDate.Name = "labAfficheDate";
+            this.labAfficheDate.Size = new System.Drawing.Size(100, 23);
+            this.labAfficheDate.TabIndex = 5;
+            this.labAfficheDate.Text = "label16";
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label15.Location = new System.Drawing.Point(339, 237);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(271, 37);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Selectionner le jour et l\'heure\r\n";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label14.Location = new System.Drawing.Point(16, 237);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(271, 37);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Selectionner l\'atelier à modifier";
             // 
             // cbxAtelier
             // 
             this.cbxAtelier.FormattingEnabled = true;
-            this.cbxAtelier.Location = new System.Drawing.Point(146, 273);
-            this.cbxAtelier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxAtelier.Location = new System.Drawing.Point(37, 276);
+            this.cbxAtelier.Margin = new System.Windows.Forms.Padding(2);
             this.cbxAtelier.Name = "cbxAtelier";
-            this.cbxAtelier.Size = new System.Drawing.Size(82, 21);
+            this.cbxAtelier.Size = new System.Drawing.Size(224, 21);
             this.cbxAtelier.TabIndex = 1;
             // 
             // dgvAtelier
@@ -442,7 +515,7 @@ namespace PPE_Maison_Des_Ligues
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvAtelier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAtelier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAtelier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.id, this.libelle, this.capaciteMax});
+            this.dgvAtelier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.Libelle, this.Capacite, this.debut, this.fin});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -452,7 +525,7 @@ namespace PPE_Maison_Des_Ligues
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAtelier.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAtelier.Location = new System.Drawing.Point(16, 20);
-            this.dgvAtelier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAtelier.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAtelier.Name = "dgvAtelier";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -466,14 +539,36 @@ namespace PPE_Maison_Des_Ligues
             this.dgvAtelier.Size = new System.Drawing.Size(776, 197);
             this.dgvAtelier.TabIndex = 0;
             // 
+            // Libelle
+            // 
+            this.Libelle.HeaderText = "Libelle";
+            this.Libelle.Name = "Libelle";
+            // 
+            // Capacite
+            // 
+            this.Capacite.HeaderText = "Capacite max";
+            this.Capacite.Name = "Capacite";
+            // 
+            // debut
+            // 
+            this.debut.HeaderText = "Debut";
+            this.debut.Name = "debut";
+            this.debut.Width = 170;
+            // 
+            // fin
+            // 
+            this.fin.HeaderText = "Fin";
+            this.fin.Name = "fin";
+            this.fin.Width = 170;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvParticipant);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(813, 406);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Participant";
@@ -500,7 +595,7 @@ namespace PPE_Maison_Des_Ligues
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvParticipant.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvParticipant.Location = new System.Drawing.Point(82, 59);
-            this.dgvParticipant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvParticipant.Margin = new System.Windows.Forms.Padding(2);
             this.dgvParticipant.Name = "dgvParticipant";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -571,21 +666,6 @@ namespace PPE_Maison_Des_Ligues
             this.label12.TabIndex = 1;
             this.label12.Text = "Liste de tout les participants:";
             // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            // 
-            // libelle
-            // 
-            this.libelle.HeaderText = "Libelle";
-            this.libelle.Name = "libelle";
-            // 
-            // capaciteMax
-            // 
-            this.capaciteMax.HeaderText = "Capacite Max";
-            this.capaciteMax.Name = "capaciteMax";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,7 +691,29 @@ namespace PPE_Maison_Des_Ligues
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnValiderHoraire;
+
+        private System.Windows.Forms.DateTimePicker dtPickerDebut;
+        private System.Windows.Forms.DateTimePicker dtPickerFin;
+
+        
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn Libelle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Capacite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fin;
+
+        private System.Windows.Forms.Label labAfficheDate;
+
+        private System.Windows.Forms.Button btnDate;
+
+        private System.Windows.Forms.Label label16;
+
+        private System.Windows.Forms.Label label15;
+
+        private System.Windows.Forms.Label label14;
+
+        
 
         private System.Windows.Forms.Button btnLogOut;
 
@@ -669,9 +771,6 @@ namespace PPE_Maison_Des_Ligues
         private System.Windows.Forms.TabPage tabAtelier;
         private System.Windows.Forms.DataGridView dgvAtelier;
         private System.Windows.Forms.ComboBox cbxAtelier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libelle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn capaciteMax;
     }
 }
 

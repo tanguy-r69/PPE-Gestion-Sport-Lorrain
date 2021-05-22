@@ -15,7 +15,7 @@ namespace PPE_Maison_Des_Ligues
        
         //Déclaration des listes
         public List<Atelier> LesAteliers = new List<Atelier>();
-        public List<Atelier> LesAteliersNotFull = new List<Atelier>();
+        public List<AtelierHoraire> LesAteliersHoraire = new List<AtelierHoraire>();
         public List<HorrairesBenevoles> LesHorrairesBenevoles = new List<HorrairesBenevoles>();
         public List<TypeParticipant> LesTypesParticipants = new List<TypeParticipant>();
         public List<Participant> LesParticipants = new List<Participant>();
@@ -25,6 +25,21 @@ namespace PPE_Maison_Des_Ligues
         {
             InitializeComponent();
             
+        }
+
+        public void actualiserDGVAtlier()
+        {
+            LesAteliersHoraire = DAOAtelier.getAllAteliersHoraire();
+            foreach (var a in LesAteliersHoraire)
+            {
+                dgvAtelier.Rows.Add(a.LibelleAtelier,a.CapaciteMax,a.Debut,a.Fin);
+            }
+
+            //remplissage de la cbx avec le libelle des ateliers
+            foreach (var a in LesAteliers)
+            {
+                cbxAtelier.Items.Add(a.LibelleAtelier);
+            }
         }
            
         
@@ -68,11 +83,7 @@ namespace PPE_Maison_Des_Ligues
             #endregion 
             
             #region Load Camille
-            
-            foreach (var a in LesAteliersNotFull)
-            {
-                dgvAtelier.Rows.Add(a.NumAtelier,a.LibelleAtelier,a.CapaciteMax);
-            }
+            actualiserDGVAtlier();
             #endregion
         }
 
@@ -298,9 +309,67 @@ namespace PPE_Maison_Des_Ligues
 
         #endregion
         
+        
+        #region Methodes Camille
+
+        private bool testHoraireExist()
+        {
+            bool res = true;
+            foreach (var a in LesAteliersHoraire)
+            {
+                if (a.Debut.Hour == dtPickerDebut.Value.Hour && a.Debut.Day == dtPickerDebut.Value.Day && a.Debut.Year == dtPickerDebut.Value.Year)
+                {
+                    
+                    res = false;
+                }
+            }
+
+            if (res == false)
+            {
+                MessageBox.Show("Plage horaire impossible atelier déjà programmé pour cet horaire", "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+
+            if (dtPickerDebut.Value > dtPickerFin.Value)
+            {
+                MessageBox.Show("Attention l'horaire de début doit être supérieur à l'horaire de fin", "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                res = false;
+            }
+            return res;
+        }
+
+        #endregion 
+        
+        
+        #region Evenements Camille
+        
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            labAfficheDate.Text = dtPickerDebut.Value.ToString("dd-MM-yyyy h:mm:ss");
+        }
+
+        private void btnValiderHoraire_Click(object sender, EventArgs e)
+        {
+            int id = cbxAtelier.SelectedIndex + 1;
+            if (testHoraireExist() == true)
+            {
+                
+                DAOAtelier.setHoraire(id, dtPickerDebut.Value, dtPickerFin.Value);
+                this.Controls.Clear();
+                this.InitializeComponent();
+                actualiserDGVAtlier();
+            }
+            
+            
+        }
+        
+        #endregion
      
         #region Evenements Non-Utiles
         
+        private void label15_Click(object sender, EventArgs e)
+        {
+            
+        }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             
@@ -376,6 +445,10 @@ namespace PPE_Maison_Des_Ligues
         }
         
         #endregion
+
+        
+       
+        
 
 
         
