@@ -292,6 +292,11 @@ namespace PPE_Maison_Des_Ligues
      
         #region Evenements Non-Utiles
         
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+        
         private void textBoxNom_TextChanged(object sender, EventArgs e)
         {
             
