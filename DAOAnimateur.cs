@@ -23,9 +23,9 @@ namespace PPE_Maison_Des_Ligues
             return lesAnimateurs;
         }
 
-        public static void setAnimateur(int idAtelier, int idAnimateur)
+        public static void SetAnimateur(int idAtelier, int idAnim)
         {
-            string requete = "update atelier set id_animateur" + idAnimateur + "where id=" + idAtelier;
+            string requete = "update atelier set id_animateur =" + idAnim + "where id =" + idAtelier;
             DAOFactory db = new DAOFactory();
             db.connecter();
             db.execSQLWrite(requete);

@@ -76,4 +76,21 @@ namespace PPE_Maison_Des_Ligues
             set => fin = value;
         }
     }
+
+    public class AtelierIdAnim : Atelier
+    {
+        private int idAnimateur;
+
+        public AtelierIdAnim(int numAtelier, string libelleAtelier, int capaciteMax, int idAnimateur) :
+            base(numAtelier, libelleAtelier, capaciteMax)
+        {
+            this.idAnimateur = idAnimateur;
+        }
+
+        public int IdAnimateur
+        {
+            get => idAnimateur;
+            set => idAnimateur = value;
+        }
+    }
 }

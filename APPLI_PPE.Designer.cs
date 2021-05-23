@@ -63,6 +63,7 @@ namespace PPE_Maison_Des_Ligues
             this.comboBoxBenevole = new System.Windows.Forms.ComboBox();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.tabAtelier = new System.Windows.Forms.TabPage();
+            this.labHoAtelier = new System.Windows.Forms.Label();
             this.btnValiderHoraire = new System.Windows.Forms.Button();
             this.dtPickerFin = new System.Windows.Forms.DateTimePicker();
             this.dtPickerDebut = new System.Windows.Forms.DateTimePicker();
@@ -87,6 +88,27 @@ namespace PPE_Maison_Des_Ligues
             this.idHorraireBenevolesParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAjouterInter = new System.Windows.Forms.Button();
+            this.cbxIntervenant = new System.Windows.Forms.ComboBox();
+            this.cbxAtelierBis = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnAjouterAnim = new System.Windows.Forms.Button();
+            this.cbxAnim = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.labAnim = new System.Windows.Forms.Label();
+            this.cbxAtelierAnimateur = new System.Windows.Forms.ComboBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cbxAtelierFull = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.labAnimAtelier = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.dgvIntervenants = new System.Windows.Forms.DataGridView();
+            this.dgvThemes = new System.Windows.Forms.DataGridView();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,6 +116,10 @@ namespace PPE_Maison_Des_Ligues
             ((System.ComponentModel.ISupportInitialize) (this.dgvAtelier)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dgvParticipant)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dgvThemes)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -113,6 +139,7 @@ namespace PPE_Maison_Des_Ligues
             this.tabControl1.Controls.Add(this.tabAtelier);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -410,6 +437,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             // tabAtelier
             // 
+            this.tabAtelier.Controls.Add(this.labHoAtelier);
             this.tabAtelier.Controls.Add(this.btnValiderHoraire);
             this.tabAtelier.Controls.Add(this.dtPickerFin);
             this.tabAtelier.Controls.Add(this.dtPickerDebut);
@@ -424,9 +452,18 @@ namespace PPE_Maison_Des_Ligues
             this.tabAtelier.Text = "Atelier";
             this.tabAtelier.UseVisualStyleBackColor = true;
             // 
+            // labHoAtelier
+            // 
+            this.labHoAtelier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labHoAtelier.Location = new System.Drawing.Point(251, 15);
+            this.labHoAtelier.Name = "labHoAtelier";
+            this.labHoAtelier.Size = new System.Drawing.Size(313, 23);
+            this.labHoAtelier.TabIndex = 10;
+            this.labHoAtelier.Text = "Modification de l\'horaire des ateliers";
+            // 
             // btnValiderHoraire
             // 
-            this.btnValiderHoraire.Location = new System.Drawing.Point(52, 338);
+            this.btnValiderHoraire.Location = new System.Drawing.Point(340, 350);
             this.btnValiderHoraire.Name = "btnValiderHoraire";
             this.btnValiderHoraire.Size = new System.Drawing.Size(121, 47);
             this.btnValiderHoraire.TabIndex = 9;
@@ -438,7 +475,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.dtPickerFin.CustomFormat = "ddMMMM yyyy  HH:mm";
             this.dtPickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerFin.Location = new System.Drawing.Point(592, 277);
+            this.dtPickerFin.Location = new System.Drawing.Point(570, 319);
             this.dtPickerFin.MinDate = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
             this.dtPickerFin.Name = "dtPickerFin";
             this.dtPickerFin.Size = new System.Drawing.Size(200, 20);
@@ -448,7 +485,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.dtPickerDebut.CustomFormat = "ddMMMM yyyy  HH:mm";
             this.dtPickerDebut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtPickerDebut.Location = new System.Drawing.Point(364, 277);
+            this.dtPickerDebut.Location = new System.Drawing.Point(364, 319);
             this.dtPickerDebut.MaxDate = new System.DateTime(2111, 1, 4, 0, 0, 0, 0);
             this.dtPickerDebut.MinDate = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
             this.dtPickerDebut.Name = "dtPickerDebut";
@@ -459,7 +496,7 @@ namespace PPE_Maison_Des_Ligues
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label15.Location = new System.Drawing.Point(364, 237);
+            this.label15.Location = new System.Drawing.Point(364, 260);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(428, 37);
             this.label15.TabIndex = 4;
@@ -469,7 +506,7 @@ namespace PPE_Maison_Des_Ligues
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label14.Location = new System.Drawing.Point(16, 237);
+            this.label14.Location = new System.Drawing.Point(33, 260);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(271, 37);
             this.label14.TabIndex = 3;
@@ -478,7 +515,7 @@ namespace PPE_Maison_Des_Ligues
             // cbxAtelier
             // 
             this.cbxAtelier.FormattingEnabled = true;
-            this.cbxAtelier.Location = new System.Drawing.Point(37, 276);
+            this.cbxAtelier.Location = new System.Drawing.Point(44, 322);
             this.cbxAtelier.Margin = new System.Windows.Forms.Padding(2);
             this.cbxAtelier.Name = "cbxAtelier";
             this.cbxAtelier.Size = new System.Drawing.Size(224, 21);
@@ -504,7 +541,7 @@ namespace PPE_Maison_Des_Ligues
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAtelier.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAtelier.Location = new System.Drawing.Point(16, 20);
+            this.dgvAtelier.Location = new System.Drawing.Point(16, 50);
             this.dgvAtelier.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAtelier.Name = "dgvAtelier";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -649,13 +686,219 @@ namespace PPE_Maison_Des_Ligues
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnAjouterInter);
+            this.tabPage4.Controls.Add(this.cbxIntervenant);
+            this.tabPage4.Controls.Add(this.cbxAtelierBis);
+            this.tabPage4.Controls.Add(this.label20);
+            this.tabPage4.Controls.Add(this.label19);
+            this.tabPage4.Controls.Add(this.label18);
+            this.tabPage4.Controls.Add(this.btnAjouterAnim);
+            this.tabPage4.Controls.Add(this.cbxAnim);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.label16);
+            this.tabPage4.Controls.Add(this.labAnim);
+            this.tabPage4.Controls.Add(this.cbxAtelierAnimateur);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(813, 406);
             this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Animateur";
+            this.tabPage4.Text = "Animateur/Intervenant";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // btnAjouterInter
+            // 
+            this.btnAjouterInter.Location = new System.Drawing.Point(652, 297);
+            this.btnAjouterInter.Name = "btnAjouterInter";
+            this.btnAjouterInter.Size = new System.Drawing.Size(121, 23);
+            this.btnAjouterInter.TabIndex = 13;
+            this.btnAjouterInter.Text = "Affecter l\'intervenant";
+            this.btnAjouterInter.UseVisualStyleBackColor = true;
+            this.btnAjouterInter.Click += new System.EventHandler(this.btnAjouterInter_Click);
+            // 
+            // cbxIntervenant
+            // 
+            this.cbxIntervenant.FormattingEnabled = true;
+            this.cbxIntervenant.Location = new System.Drawing.Point(388, 299);
+            this.cbxIntervenant.Name = "cbxIntervenant";
+            this.cbxIntervenant.Size = new System.Drawing.Size(206, 21);
+            this.cbxIntervenant.TabIndex = 12;
+            // 
+            // cbxAtelierBis
+            // 
+            this.cbxAtelierBis.FormattingEnabled = true;
+            this.cbxAtelierBis.Location = new System.Drawing.Point(44, 299);
+            this.cbxAtelierBis.Name = "cbxAtelierBis";
+            this.cbxAtelierBis.Size = new System.Drawing.Size(224, 21);
+            this.cbxAtelierBis.TabIndex = 11;
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label20.Location = new System.Drawing.Point(388, 237);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(201, 23);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Liste des intervenants";
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label19.Location = new System.Drawing.Point(44, 237);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(157, 23);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "Listes des ateliers";
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label18.Location = new System.Drawing.Point(225, 185);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(343, 23);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Affectation d\'un intervenant à un atelier\r\n\r\n";
+            // 
+            // btnAjouterAnim
+            // 
+            this.btnAjouterAnim.Location = new System.Drawing.Point(652, 101);
+            this.btnAjouterAnim.Name = "btnAjouterAnim";
+            this.btnAjouterAnim.Size = new System.Drawing.Size(121, 21);
+            this.btnAjouterAnim.TabIndex = 7;
+            this.btnAjouterAnim.Text = "Affecter l\'animateur";
+            this.btnAjouterAnim.UseVisualStyleBackColor = true;
+            this.btnAjouterAnim.Click += new System.EventHandler(this.btnAjouterAnim_Click);
+            // 
+            // cbxAnim
+            // 
+            this.cbxAnim.FormattingEnabled = true;
+            this.cbxAnim.Location = new System.Drawing.Point(388, 101);
+            this.cbxAnim.Name = "cbxAnim";
+            this.cbxAnim.Size = new System.Drawing.Size(206, 21);
+            this.cbxAnim.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label17.Location = new System.Drawing.Point(388, 60);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(183, 23);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Liste des animateurs";
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label16.Location = new System.Drawing.Point(44, 60);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(157, 23);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Liste des ateliers";
+            // 
+            // labAnim
+            // 
+            this.labAnim.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labAnim.Location = new System.Drawing.Point(225, 27);
+            this.labAnim.Name = "labAnim";
+            this.labAnim.Size = new System.Drawing.Size(327, 23);
+            this.labAnim.TabIndex = 3;
+            this.labAnim.Text = "Affectation d\'un animateur à un atelier";
+            // 
+            // cbxAtelierAnimateur
+            // 
+            this.cbxAtelierAnimateur.FormattingEnabled = true;
+            this.cbxAtelierAnimateur.Location = new System.Drawing.Point(44, 101);
+            this.cbxAtelierAnimateur.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxAtelierAnimateur.Name = "cbxAtelierAnimateur";
+            this.cbxAtelierAnimateur.Size = new System.Drawing.Size(224, 21);
+            this.cbxAtelierAnimateur.TabIndex = 2;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label24);
+            this.tabPage5.Controls.Add(this.label23);
+            this.tabPage5.Controls.Add(this.dgvThemes);
+            this.tabPage5.Controls.Add(this.dgvIntervenants);
+            this.tabPage5.Controls.Add(this.label22);
+            this.tabPage5.Controls.Add(this.labAnimAtelier);
+            this.tabPage5.Controls.Add(this.label21);
+            this.tabPage5.Controls.Add(this.cbxAtelierFull);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(813, 406);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Voir-les-ateliers";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // cbxAtelierFull
+            // 
+            this.cbxAtelierFull.FormattingEnabled = true;
+            this.cbxAtelierFull.Location = new System.Drawing.Point(48, 88);
+            this.cbxAtelierFull.Name = "cbxAtelierFull";
+            this.cbxAtelierFull.Size = new System.Drawing.Size(186, 21);
+            this.cbxAtelierFull.TabIndex = 0;
+            // 
+            // label21
+            // 
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label21.Location = new System.Drawing.Point(48, 20);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(240, 56);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "Choisir l\'atelier d\'on vous vouler voir les informations \r\n";
+            // 
+            // labAnimAtelier
+            // 
+            this.labAnimAtelier.Location = new System.Drawing.Point(433, 86);
+            this.labAnimAtelier.Name = "labAnimAtelier";
+            this.labAnimAtelier.Size = new System.Drawing.Size(100, 23);
+            this.labAnimAtelier.TabIndex = 2;
+            this.labAnimAtelier.Text = "label22";
+            // 
+            // label22
+            // 
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label22.Location = new System.Drawing.Point(433, 36);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(100, 23);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Animateur";
+            // 
+            // dgvIntervenants
+            // 
+            this.dgvIntervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIntervenants.Location = new System.Drawing.Point(48, 206);
+            this.dgvIntervenants.Name = "dgvIntervenants";
+            this.dgvIntervenants.Size = new System.Drawing.Size(240, 150);
+            this.dgvIntervenants.TabIndex = 4;
+            // 
+            // dgvThemes
+            // 
+            this.dgvThemes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThemes.Location = new System.Drawing.Point(433, 206);
+            this.dgvThemes.Name = "dgvThemes";
+            this.dgvThemes.Size = new System.Drawing.Size(240, 150);
+            this.dgvThemes.TabIndex = 5;
+            // 
+            // label23
+            // 
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label23.Location = new System.Drawing.Point(48, 158);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(133, 23);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Intervenant(s)";
+            // 
+            // label24
+            // 
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label24.Location = new System.Drawing.Point(433, 158);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(100, 23);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Themes";
             // 
             // Form1
             // 
@@ -678,9 +921,48 @@ namespace PPE_Maison_Des_Ligues
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dgvParticipant)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dgvThemes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.DataGridView dgvIntervenants;
+        private System.Windows.Forms.DataGridView dgvThemes;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+
+        private System.Windows.Forms.ComboBox cbxAtelierFull;
+        private System.Windows.Forms.Label label22;
+
+        private System.Windows.Forms.Label label21;
+
+        private System.Windows.Forms.TabPage tabPage5;
+
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cbxAtelierBis;
+        private System.Windows.Forms.ComboBox cbxIntervenant;
+        private System.Windows.Forms.Button btnAjouterInter;
+
+        private System.Windows.Forms.Label label18;
+
+        private System.Windows.Forms.Button btnAjouterAnim;
+
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cbxAnim;
+
+        private System.Windows.Forms.Label label16;
+
+        private System.Windows.Forms.ComboBox cbxAtelierAnimateur;
+
+        private System.Windows.Forms.Label labAnim;
+
+        private System.Windows.Forms.Label labHoAtelier;
+
+        private System.Windows.Forms.ComboBox comboBox1;
 
         private System.Windows.Forms.TabPage tabPage4;
 
@@ -695,8 +977,6 @@ namespace PPE_Maison_Des_Ligues
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacite;
         private System.Windows.Forms.DataGridViewTextBoxColumn debut;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin;
-
-        private System.Windows.Forms.Label label16;
 
         private System.Windows.Forms.Label label15;
 

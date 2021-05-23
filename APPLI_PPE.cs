@@ -19,6 +19,9 @@ namespace PPE_Maison_Des_Ligues
         public List<HorrairesBenevoles> LesHorrairesBenevoles = new List<HorrairesBenevoles>();
         public List<TypeParticipant> LesTypesParticipants = new List<TypeParticipant>();
         public List<Participant> LesParticipants = new List<Participant>();
+        public List<Animateur> lesAnimateurs = new List<Animateur>();
+        public List<AtelierIdAnim> LesAtelierIdAnims = new List<AtelierIdAnim>();
+        public List<Intervenant> lesIntervenants = new List<Intervenant>();
         
         
         public Form1()
@@ -26,10 +29,8 @@ namespace PPE_Maison_Des_Ligues
             InitializeComponent();
             
         }
-        
-           
-        
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void ReloadApplication()
         {
             #region  Load Tanguy
             //Remplissage des listes
@@ -76,12 +77,35 @@ namespace PPE_Maison_Des_Ligues
                 dgvAtelier.Rows.Add(a.LibelleAtelier,a.CapaciteMax,a.Debut,a.Fin);
             }
 
-            //remplissage de la cbx avec le libelle des ateliers
+            
             foreach (var a in LesAteliers)
             {
                 cbxAtelier.Items.Add(a.LibelleAtelier);
+                cbxAtelierAnimateur.Items.Add(a.LibelleAtelier);
+                cbxAtelierBis.Items.Add(a.LibelleAtelier);
             }
+
+            lesAnimateurs = DAOAnimateur.GetAllAnimateurs();
+
+            foreach (var anim in lesAnimateurs)
+            {
+                cbxAnim.Items.Add(anim.Nom);
+            }
+
+            LesAtelierIdAnims = DAOAtelier.GetAllAtelierIdAnims();
+
+            lesIntervenants = DAOIntervenant.GetIntervenants();
+            foreach (var inte in lesIntervenants)
+            {
+                cbxIntervenant.Items.Add(inte.Nom);
+            }
+
             #endregion
+        }
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ReloadApplication();
         }
 
         
@@ -138,7 +162,9 @@ namespace PPE_Maison_Des_Ligues
             
             //refresh bdd
             refreshDgvParticipant();
-
+            this.Controls.Clear();
+            this.InitializeComponent();
+            ReloadApplication();
         }
         
         #endregion
@@ -352,6 +378,21 @@ namespace PPE_Maison_Des_Ligues
             }
         }
 
+        public bool testAnimAtelier(int idAnim)
+        {
+            LesAtelierIdAnims = DAOAtelier.GetAllAtelierIdAnims();
+            bool res = true;
+            foreach (var at in LesAtelierIdAnims)
+            {
+                if (idAnim == at.IdAnimateur)
+                {
+                    MessageBox.Show("Attention cet personne est déjà animateur d'un autre atelier :"+at.LibelleAtelier, "erreur", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            return res;
+        }
+
         #endregion 
         
         
@@ -372,10 +413,35 @@ namespace PPE_Maison_Des_Ligues
             refreshDgvAtelier();
         }
         
+        private void btnAjouterAnim_Click(object sender, EventArgs e)
+        {
+            int idAnim = cbxAnim.SelectedIndex + 1;
+            int idAtelier= cbxAtelierAnimateur.SelectedIndex +1 ;
+
+            if (testAnimAtelier(idAnim) == true)
+            {
+                DAOAnimateur.SetAnimateur(idAtelier,idAnim);
+            }
+            
+        }
+        
+        private void btnAjouterInter_Click(object sender, EventArgs e)
+        {
+            int idInt = cbxIntervenant.SelectedIndex + 1;
+            int idAtelier = cbxAtelierBis.SelectedIndex + 1;
+
+            DAOIntervenant.ajouterIntervenant(idAtelier, idInt);
+        }
+        
         #endregion
+        
      
         #region Evenements Non-Utiles
         
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+            
+        }
         private void label15_Click(object sender, EventArgs e)
         {
             
@@ -455,5 +521,8 @@ namespace PPE_Maison_Des_Ligues
         }
         
         #endregion
+
+
+        
     }
 }

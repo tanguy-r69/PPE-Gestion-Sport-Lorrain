@@ -49,6 +49,10 @@
     <Compile Include="AddParticipant.cs" />
     <Compile Include="Animateur.cs" />
     <Compile Include="Atelier.cs" />
+    <Compile Include="DAOIntervenant.cs" />
+    <Compile Include="DAOTheme.cs" />
+    <Compile Include="Intervenant.cs" />
+    <Compile Include="Theme.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="DAOAnimateur.cs" />
     <Compile Include="DAOAtelier.cs" />

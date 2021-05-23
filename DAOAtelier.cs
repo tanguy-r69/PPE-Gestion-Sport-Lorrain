@@ -53,5 +53,24 @@ namespace PPE_Maison_Des_Ligues
             db.connecter();
             db.execSQLWrite(requete);
         }
+
+        public static List<AtelierIdAnim> GetAllAtelierIdAnims()
+        {
+            List<AtelierIdAnim> atelierIdAni = new List<AtelierIdAnim>();
+            string req = "select id, libelle, capaciteMax, id_animateur from atelier";
+            DAOFactory db = new DAOFactory();
+            db.connecter();
+
+            SqlDataReader reader = db.excecSQLRead(req);
+
+            while (reader.Read())
+            {
+                AtelierIdAnim atelierIdAnim = new AtelierIdAnim(int.Parse(reader[0].ToString()), reader[1].ToString(),
+                    int.Parse(reader[2].ToString()), int.Parse(reader[3].ToString()));
+                atelierIdAni.Add(atelierIdAnim);
+            }
+
+            return atelierIdAni;
+        }
     }
 }
