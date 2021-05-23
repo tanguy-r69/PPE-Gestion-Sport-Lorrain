@@ -433,6 +433,11 @@ namespace PPE_Maison_Des_Ligues
             DAOIntervenant.ajouterIntervenant(idAtelier, idInt);
         }
         
+        private void cbxAtelierFull_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        
         #endregion
         
      

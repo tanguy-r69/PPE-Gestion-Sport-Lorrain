@@ -101,13 +101,13 @@ namespace PPE_Maison_Des_Ligues
             this.labAnim = new System.Windows.Forms.Label();
             this.cbxAtelierAnimateur = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.cbxAtelierFull = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.dgvIntervenants = new System.Windows.Forms.DataGridView();
-            this.dgvThemes = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.dgvThemes = new System.Windows.Forms.DataGridView();
+            this.dgvIntervenants = new System.Windows.Forms.DataGridView();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbxAtelierFull = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -117,8 +117,8 @@ namespace PPE_Maison_Des_Ligues
             ((System.ComponentModel.ISupportInitialize) (this.dgvParticipant)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.dgvThemes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -830,48 +830,14 @@ namespace PPE_Maison_Des_Ligues
             this.tabPage5.Text = "Voir-les-ateliers";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // cbxAtelierFull
+            // label24
             // 
-            this.cbxAtelierFull.FormattingEnabled = true;
-            this.cbxAtelierFull.Location = new System.Drawing.Point(48, 88);
-            this.cbxAtelierFull.Name = "cbxAtelierFull";
-            this.cbxAtelierFull.Size = new System.Drawing.Size(186, 21);
-            this.cbxAtelierFull.TabIndex = 0;
-            // 
-            // label21
-            // 
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label21.Location = new System.Drawing.Point(48, 20);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(240, 56);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "Choisir l\'atelier d\'on vous vouler voir les informations \r\n";
-            
-            // 
-            // label22
-            // 
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label22.Location = new System.Drawing.Point(433, 36);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(100, 23);
-            this.label22.TabIndex = 3;
-            this.label22.Text = "Animateur";
-            // 
-            // dgvIntervenants
-            // 
-            this.dgvIntervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIntervenants.Location = new System.Drawing.Point(48, 206);
-            this.dgvIntervenants.Name = "dgvIntervenants";
-            this.dgvIntervenants.Size = new System.Drawing.Size(240, 150);
-            this.dgvIntervenants.TabIndex = 4;
-            // 
-            // dgvThemes
-            // 
-            this.dgvThemes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThemes.Location = new System.Drawing.Point(433, 206);
-            this.dgvThemes.Name = "dgvThemes";
-            this.dgvThemes.Size = new System.Drawing.Size(240, 150);
-            this.dgvThemes.TabIndex = 5;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label24.Location = new System.Drawing.Point(433, 158);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(100, 23);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Themes";
             // 
             // label23
             // 
@@ -882,14 +848,48 @@ namespace PPE_Maison_Des_Ligues
             this.label23.TabIndex = 6;
             this.label23.Text = "Intervenant(s)";
             // 
-            // label24
+            // dgvThemes
             // 
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label24.Location = new System.Drawing.Point(433, 158);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(100, 23);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Themes";
+            this.dgvThemes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThemes.Location = new System.Drawing.Point(433, 206);
+            this.dgvThemes.Name = "dgvThemes";
+            this.dgvThemes.Size = new System.Drawing.Size(240, 150);
+            this.dgvThemes.TabIndex = 5;
+            // 
+            // dgvIntervenants
+            // 
+            this.dgvIntervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIntervenants.Location = new System.Drawing.Point(48, 206);
+            this.dgvIntervenants.Name = "dgvIntervenants";
+            this.dgvIntervenants.Size = new System.Drawing.Size(240, 150);
+            this.dgvIntervenants.TabIndex = 4;
+            // 
+            // label22
+            // 
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label22.Location = new System.Drawing.Point(433, 36);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(100, 23);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Animateur";
+            // 
+            // label21
+            // 
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label21.Location = new System.Drawing.Point(48, 20);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(240, 56);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "Choisir l\'atelier d\'on vous vouler voir les informations \r\n";
+            // 
+            // cbxAtelierFull
+            // 
+            this.cbxAtelierFull.FormattingEnabled = true;
+            this.cbxAtelierFull.Location = new System.Drawing.Point(48, 88);
+            this.cbxAtelierFull.Name = "cbxAtelierFull";
+            this.cbxAtelierFull.Size = new System.Drawing.Size(186, 21);
+            this.cbxAtelierFull.TabIndex = 0;
+            this.cbxAtelierFull.SelectedIndexChanged += new System.EventHandler(this.cbxAtelierFull_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -914,8 +914,8 @@ namespace PPE_Maison_Des_Ligues
             ((System.ComponentModel.ISupportInitialize) (this.dgvParticipant)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.dgvThemes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
