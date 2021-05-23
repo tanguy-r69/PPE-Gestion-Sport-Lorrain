@@ -523,6 +523,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             this.Libelle.HeaderText = "Libelle";
             this.Libelle.Name = "Libelle";
+            this.Libelle.Width = 300;
             // 
             // Capacite
             // 
@@ -653,7 +654,7 @@ namespace PPE_Maison_Des_Ligues
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(813, 406);
             this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Intervenant";
+            this.tabPage4.Text = "Animateur";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // Form1

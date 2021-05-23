@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddParticipant.cs" />
+    <Compile Include="Animateur.cs" />
     <Compile Include="Atelier.cs" />
     <Compile Include="Connect.cs" />
+    <Compile Include="DAOAnimateur.cs" />
     <Compile Include="DAOAtelier.cs" />
     <Compile Include="DAOFactory.cs" />
     <Compile Include="APPLI_PPE.cs">
