@@ -103,7 +103,6 @@ namespace PPE_Maison_Des_Ligues
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.cbxAtelierFull = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.labAnimAtelier = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dgvIntervenants = new System.Windows.Forms.DataGridView();
             this.dgvThemes = new System.Windows.Forms.DataGridView();
@@ -821,7 +820,6 @@ namespace PPE_Maison_Des_Ligues
             this.tabPage5.Controls.Add(this.dgvThemes);
             this.tabPage5.Controls.Add(this.dgvIntervenants);
             this.tabPage5.Controls.Add(this.label22);
-            this.tabPage5.Controls.Add(this.labAnimAtelier);
             this.tabPage5.Controls.Add(this.label21);
             this.tabPage5.Controls.Add(this.cbxAtelierFull);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -848,14 +846,7 @@ namespace PPE_Maison_Des_Ligues
             this.label21.Size = new System.Drawing.Size(240, 56);
             this.label21.TabIndex = 1;
             this.label21.Text = "Choisir l\'atelier d\'on vous vouler voir les informations \r\n";
-            // 
-            // labAnimAtelier
-            // 
-            this.labAnimAtelier.Location = new System.Drawing.Point(433, 86);
-            this.labAnimAtelier.Name = "labAnimAtelier";
-            this.labAnimAtelier.Size = new System.Drawing.Size(100, 23);
-            this.labAnimAtelier.TabIndex = 2;
-            this.labAnimAtelier.Text = "label22";
+            
             // 
             // label22
             // 
