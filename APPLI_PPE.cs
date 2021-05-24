@@ -145,7 +145,9 @@ namespace PPE_Maison_Des_Ligues
                         textBoxNom.Clear();
                         textBoxPrenom.Clear();
                         textBoxTel.Clear();
-                        
+                        this.Controls.Clear();
+                        this.InitializeComponent();
+                        ReloadApplication();
                     }
                     else
                     {
@@ -166,9 +168,7 @@ namespace PPE_Maison_Des_Ligues
             
             //refresh bdd
             refreshDgvParticipant();
-            this.Controls.Clear();
-            this.InitializeComponent();
-            ReloadApplication();
+            
         }
         
         #endregion
