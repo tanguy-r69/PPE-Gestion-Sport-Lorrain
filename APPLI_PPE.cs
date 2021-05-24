@@ -22,6 +22,9 @@ namespace PPE_Maison_Des_Ligues
         public List<Animateur> lesAnimateurs = new List<Animateur>();
         public List<AtelierIdAnim> LesAtelierIdAnims = new List<AtelierIdAnim>();
         public List<Intervenant> lesIntervenants = new List<Intervenant>();
+        public List<Animateur> animById = new List<Animateur>();
+        public List<Intervenant> intervenantById = new List<Intervenant>();
+        public List<Theme> lesThemesById = new List<Theme>();
         
         
         public Form1()
@@ -83,6 +86,7 @@ namespace PPE_Maison_Des_Ligues
                 cbxAtelier.Items.Add(a.LibelleAtelier);
                 cbxAtelierAnimateur.Items.Add(a.LibelleAtelier);
                 cbxAtelierBis.Items.Add(a.LibelleAtelier);
+                cbxAtelierFull.Items.Add(a.LibelleAtelier);
             }
 
             lesAnimateurs = DAOAnimateur.GetAllAnimateurs();
@@ -435,7 +439,29 @@ namespace PPE_Maison_Des_Ligues
         
         private void cbxAtelierFull_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int idAtelier = cbxAtelierFull.SelectedIndex + 1;
             
+            dgvIntervenants.Rows.Clear();
+            dgvThemes.Rows.Clear();
+            txbAnim.Clear();
+
+            animById = DAOAnimateur.getAnimById(idAtelier);
+            foreach (var anim in animById)
+            {
+                txbAnim.Text = anim.Nom;
+            }
+            
+            intervenantById = DAOIntervenant.intervenantByIdAtelier(idAtelier);
+            foreach (var inte in intervenantById)
+            {
+                dgvIntervenants.Rows.Add(inte.Id, inte.Nom);
+            }
+
+            lesThemesById = DAOTheme.GetThemesById(idAtelier);
+            foreach (var theme in lesThemesById)
+            {
+                dgvThemes.Rows.Add(theme.IdTheme, theme.LibelleTheme);
+            }
         }
         
         #endregion

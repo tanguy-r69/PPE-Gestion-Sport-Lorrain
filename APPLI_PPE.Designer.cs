@@ -101,10 +101,15 @@ namespace PPE_Maison_Des_Ligues
             this.labAnim = new System.Windows.Forms.Label();
             this.cbxAtelierAnimateur = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.txbAnim = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.dgvThemes = new System.Windows.Forms.DataGridView();
+            this.idt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libellet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvIntervenants = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cbxAtelierFull = new System.Windows.Forms.ComboBox();
@@ -815,6 +820,7 @@ namespace PPE_Maison_Des_Ligues
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.txbAnim);
             this.tabPage5.Controls.Add(this.label24);
             this.tabPage5.Controls.Add(this.label23);
             this.tabPage5.Controls.Add(this.dgvThemes);
@@ -829,6 +835,13 @@ namespace PPE_Maison_Des_Ligues
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Voir-les-ateliers";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // txbAnim
+            // 
+            this.txbAnim.Location = new System.Drawing.Point(433, 89);
+            this.txbAnim.Name = "txbAnim";
+            this.txbAnim.Size = new System.Drawing.Size(136, 20);
+            this.txbAnim.TabIndex = 8;
             // 
             // label24
             // 
@@ -851,18 +864,41 @@ namespace PPE_Maison_Des_Ligues
             // dgvThemes
             // 
             this.dgvThemes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThemes.Location = new System.Drawing.Point(433, 206);
+            this.dgvThemes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.idt, this.libellet});
+            this.dgvThemes.Location = new System.Drawing.Point(372, 206);
             this.dgvThemes.Name = "dgvThemes";
-            this.dgvThemes.Size = new System.Drawing.Size(240, 150);
+            this.dgvThemes.Size = new System.Drawing.Size(433, 191);
             this.dgvThemes.TabIndex = 5;
+            // 
+            // idt
+            // 
+            this.idt.HeaderText = "Id";
+            this.idt.Name = "idt";
+            // 
+            // libellet
+            // 
+            this.libellet.HeaderText = "Libelle";
+            this.libellet.Name = "libellet";
+            this.libellet.Width = 300;
             // 
             // dgvIntervenants
             // 
             this.dgvIntervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIntervenants.Location = new System.Drawing.Point(48, 206);
+            this.dgvIntervenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.id, this.nom});
+            this.dgvIntervenants.Location = new System.Drawing.Point(21, 206);
             this.dgvIntervenants.Name = "dgvIntervenants";
-            this.dgvIntervenants.Size = new System.Drawing.Size(240, 150);
+            this.dgvIntervenants.Size = new System.Drawing.Size(318, 150);
             this.dgvIntervenants.TabIndex = 4;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.Name = "nom";
             // 
             // label22
             // 
@@ -887,7 +923,7 @@ namespace PPE_Maison_Des_Ligues
             this.cbxAtelierFull.FormattingEnabled = true;
             this.cbxAtelierFull.Location = new System.Drawing.Point(48, 88);
             this.cbxAtelierFull.Name = "cbxAtelierFull";
-            this.cbxAtelierFull.Size = new System.Drawing.Size(186, 21);
+            this.cbxAtelierFull.Size = new System.Drawing.Size(240, 21);
             this.cbxAtelierFull.TabIndex = 0;
             this.cbxAtelierFull.SelectedIndexChanged += new System.EventHandler(this.cbxAtelierFull_SelectedIndexChanged);
             // 
@@ -914,11 +950,20 @@ namespace PPE_Maison_Des_Ligues
             ((System.ComponentModel.ISupportInitialize) (this.dgvParticipant)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dgvThemes)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.dgvIntervenants)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn idt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libellet;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
+
+        private System.Windows.Forms.TextBox txbAnim;
 
         private System.Windows.Forms.DataGridView dgvIntervenants;
         private System.Windows.Forms.DataGridView dgvThemes;

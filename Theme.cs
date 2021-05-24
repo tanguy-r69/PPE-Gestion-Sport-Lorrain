@@ -6,17 +6,15 @@
 
         private int idTheme;
         private string libelleTheme;
-        private int idAtelier;
 
         #endregion
 
         #region Constructeur
 
-        public Theme(int idTheme, string libelleTheme, int idAtelier)
+        public Theme(int idTheme, string libelleTheme)
         {
             this.idTheme = idTheme;
             this.libelleTheme = libelleTheme;
-            this.idAtelier = idAtelier;
         }
 
         #endregion
@@ -35,11 +33,7 @@
             set => libelleTheme = value;
         }
 
-        public int IdAtelier
-        {
-            get => idAtelier;
-            set => idAtelier = value;
-        }
+        
 
         #endregion
     }

@@ -33,5 +33,26 @@ namespace PPE_Maison_Des_Ligues
             daoP.connecter();
             SqlDataReader reader = daoP.excecSQLRead(requete);
         }
+
+        public static List<Intervenant> intervenantByIdAtelier(int idAtelier)
+        {
+            List<Intervenant> intervenantById = new List<Intervenant>();
+            string requete = "select participant.id,nom from intervenant join participant on intervenant.id = participant.id where id_atelier ="+ idAtelier;
+            
+            DAOFactory daoP = new DAOFactory();
+            daoP.connecter();
+
+            SqlDataReader reader = daoP.excecSQLRead(requete);
+
+            while (reader.Read())
+            {
+                Intervenant inte = new Intervenant(int.Parse(reader[0].ToString()), reader[1].ToString());
+                intervenantById.Add(inte);
+            }
+
+            return intervenantById;
+        }
     }
+    
+    
 }

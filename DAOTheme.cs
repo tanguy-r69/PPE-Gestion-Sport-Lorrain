@@ -5,10 +5,10 @@ namespace PPE_Maison_Des_Ligues
 {
     public class DAOTheme
     {
-        public static List<Theme> GetAllThemes()
+        public static List<Theme> GetThemesById(int idAtelier)
         {
-            List<Theme> lesThemes = new List<Theme>();
-            string requete = "select * from theme";
+            List<Theme> lesThemesById = new List<Theme>();
+            string requete = "select id, libelle from theme where id_atelier ="+ idAtelier;
             DAOFactory daoP = new DAOFactory();
             daoP.connecter();
 
@@ -16,12 +16,11 @@ namespace PPE_Maison_Des_Ligues
 
             while (reader.Read())
             {
-                Theme theme = new Theme(int.Parse(reader[0].ToString()), reader[1].ToString(),
-                    int.Parse(reader[2].ToString()));
-                lesThemes.Add(theme);
+                Theme theme = new Theme(int.Parse(reader[0].ToString()), reader[1].ToString());
+                lesThemesById.Add(theme);
             }
 
-            return lesThemes;
+            return lesThemesById;
         }
     }
 }
