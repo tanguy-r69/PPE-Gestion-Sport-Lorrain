@@ -419,8 +419,12 @@ namespace PPE_Maison_Des_Ligues
         
         private void btnAjouterAnim_Click(object sender, EventArgs e)
         {
-            int idAnim = cbxAnim.SelectedIndex + 1;
+            
             int idAtelier= cbxAtelierAnimateur.SelectedIndex +1 ;
+
+            int a = cbxAnim.SelectedIndex;
+            Animateur unAnimateur = lesAnimateurs.ElementAt(a);
+            int idAnim = unAnimateur.Id;
 
             if (testAnimAtelier(idAnim) == true)
             {
@@ -433,8 +437,12 @@ namespace PPE_Maison_Des_Ligues
         {
             int idInt = cbxIntervenant.SelectedIndex + 1;
             int idAtelier = cbxAtelierBis.SelectedIndex + 1;
+            
 
-            DAOIntervenant.ajouterIntervenant(idAtelier, idInt);
+            if (testAnimAtelier(idInt) == true)
+            {
+                DAOIntervenant.ajouterIntervenant(idAtelier, idInt);
+            }
         }
         
         private void cbxAtelierFull_SelectedIndexChanged(object sender, EventArgs e)
